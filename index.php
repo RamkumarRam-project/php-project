@@ -1,13 +1,13 @@
 <?php
-// Connect to MySQL Database
+
 $connection = mysqli_connect("localhost", "root", "", "crud");
 
-// Check connection
+
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-// Insert or Update Data when form is submitted
+// Insert 
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Delete Student Record
+// Delete Student
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     mysqli_query($connection, "DELETE FROM student WHERE id=$id");
@@ -38,10 +38,10 @@ if (isset($_GET['delete'])) {
     exit();
 }
 
-// Fetch All Records
+
 $result = mysqli_query($connection, "SELECT * FROM student");
 
-// Edit Student Record
+// Edit Student 
 $edit_name = "";
 $edit_address = "";
 $edit_mobile = "";
